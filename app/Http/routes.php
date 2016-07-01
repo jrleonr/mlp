@@ -1,16 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+//set routes for Api
+Route::group(['namespace' => 'Api', 'prefix' => 'api/v1'], function(){
+    //set Api version
+    Route::group(['namespace' => 'V1'], function(){
+        Route::get('data', 'DataController@store');
+        Route::post('data', 'DataController@store');
 
-Route::get('/', function () {
-    return view('welcome');
+    });
 });
